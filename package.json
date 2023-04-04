@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chatwoot/prosemirror-schema.git"
+    "url": "git+https://github.com/DazaIntersel95/prosemirror-schema.git"
   },
   "files": [
     "src/*"
