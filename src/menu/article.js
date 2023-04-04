@@ -172,7 +172,7 @@ function wrapListItem(nodeType, options) {
 export function buildArticleEditorMenu(schema, onFileUpload) {
   let r = {
     toggleStrong: markItem(schema.marks.strong, {
-      title: 'Toggle strong style',
+      title: 'Negrita',
       icon: BoldIcon,
     }),
     toggleEm: markItem(schema.marks.em, {
