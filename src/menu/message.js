@@ -91,7 +91,7 @@ export function buildMessageEditorMenu(schema, tooltipEditor) {
   console.log('.:: buildMessageEditorMenu tooltipEditor ::.', tooltipEditor);
   let r = {
     toggleStrong: markItem(schema.marks.strong, {
-      title: schema.marks.strong.attrs.title.default,
+      title: tooltipEditor.strong,
       icon: BoldIcon,
     }),
     toggleEm: markItem(schema.marks.em, {
