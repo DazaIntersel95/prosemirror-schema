@@ -56,7 +56,6 @@ export function wootArticleWriterSetup(props) {
 }
 
 export function wootMessageWriterSetup(props) {
-  console.log('.:: wootMessageWriterSetup ::.', props);
   let plugins = [
     ...(props.plugins || []),
     history(),
@@ -70,7 +69,7 @@ export function wootMessageWriterSetup(props) {
     Placeholder(props.placeholder),
     menuBar({
       floating: true,
-      content: buildMessageEditorMenu(props.schema).fullMenu,
+      content: buildMessageEditorMenu(props.schema, props.tooltipMenuEditor).fullMenu,
     }),
     new Plugin({
       props: {
