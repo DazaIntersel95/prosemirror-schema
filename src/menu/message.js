@@ -49,9 +49,9 @@ function markItem(markType, options) {
   return cmdItem(toggleMark(markType), passedOptions);
 }
 
-function linkItem(markType) {
+function linkItem(markType, linkText) {
   return new MenuItem({
-    title: markType.attrs.title.default,
+    title: linkText,
     icon: LinkIcon,
     active(state) {
       return markActive(state, markType);
@@ -95,30 +95,30 @@ export function buildMessageEditorMenu(schema, tooltipEditor) {
       icon: BoldIcon,
     }),
     toggleEm: markItem(schema.marks.em, {
-      title: schema.marks.em.attrs.title.default,
+      title: tooltipEditor.emphasis,
       icon: ItalicsIcon,
     }),
     toggleCode: markItem(schema.marks.code, {
-      title: schema.marks.code.attrs.title.default,
+      title: tooltipEditor.code,
       icon: CodeIcon,
     }),
-    toggleLink: linkItem(schema.marks.link),
+    toggleLink: linkItem(schema.marks.link, tooltipEditor.link),
     wrapBulletList: wrapListItem(schema.nodes.bullet_list, {
-      title: schema.marks.link.attrs.title.default,
+      title: tooltipEditor.bulletList,
       icon: BulletListIcon,
     }),
     wrapOrderedList: wrapListItem(schema.nodes.ordered_list, {
-      title: 'Wrap in ordered list',
+      title: tooltipEditor.orderedList,
       icon: TextNumberListIcon,
     }),
     undoItem: new MenuItem({
-      title: 'Undo last change',
+      title: tooltipEditor.undo,
       run: undo,
       enable: state => undo(state),
       icon: UndoIcon,
     }),
     redoItem: new MenuItem({
-      title: 'Redo last undone change',
+      title: tooltipEditor.redo,
       run: redo,
       enable: state => redo(state),
       icon: RedoIcon,
