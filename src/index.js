@@ -56,6 +56,7 @@ export function wootArticleWriterSetup(props) {
 }
 
 export function wootMessageWriterSetup(props) {
+  console.log('.:: wootMessageWriterSetup ::.', props);
   let plugins = [
     ...(props.plugins || []),
     history(),
