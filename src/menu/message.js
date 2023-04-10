@@ -51,7 +51,7 @@ function markItem(markType, options) {
 
 function linkItem(markType) {
   return new MenuItem({
-    title: 'Add or remove link',
+    title: markType.attrs.title.default,
     icon: LinkIcon,
     active(state) {
       return markActive(state, markType);
@@ -90,23 +90,22 @@ function wrapListItem(nodeType, options) {
 export function buildMessageEditorMenu(schema) {
   console.log('.:: buildMessageEditorMenu Nodes ::.', schema.nodes);
   console.log('.:: buildMessageEditorMenu marks ::.', schema.marks);
-  console.log('.:: Strong title ::.',schema.marks.strong.attrs.title);
   let r = {
     toggleStrong: markItem(schema.marks.strong, {
-      title: 'Negrita',
+      title: schema.marks.strong.attrs.title.default,
       icon: BoldIcon,
     }),
     toggleEm: markItem(schema.marks.em, {
-      title: 'Toggle emphasis',
+      title: schema.marks.em.attrs.title.default,
       icon: ItalicsIcon,
     }),
     toggleCode: markItem(schema.marks.code, {
-      title: 'Toggle code font',
+      title: schema.marks.code.attrs.title.default,
       icon: CodeIcon,
     }),
     toggleLink: linkItem(schema.marks.link),
     wrapBulletList: wrapListItem(schema.nodes.bullet_list, {
-      title: 'Wrap in bullet list',
+      title: schema.marks.link.attrs.title.default,
       icon: BulletListIcon,
     }),
     wrapOrderedList: wrapListItem(schema.nodes.ordered_list, {
