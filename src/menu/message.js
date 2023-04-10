@@ -90,6 +90,7 @@ function wrapListItem(nodeType, options) {
 export function buildMessageEditorMenu(schema) {
   console.log('.:: buildMessageEditorMenu Nodes ::.', schema.nodes);
   console.log('.:: buildMessageEditorMenu marks ::.', schema.marks);
+  console.log('.:: Strong title ::.',schema.marks.strong.attrs.title);
   let r = {
     toggleStrong: markItem(schema.marks.strong, {
       title: 'Negrita',
