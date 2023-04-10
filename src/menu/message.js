@@ -88,7 +88,6 @@ function wrapListItem(nodeType, options) {
 }
 
 export function buildMessageEditorMenu(schema, tooltipEditor) {
-  console.log('.:: buildMessageEditorMenu tooltipEditor ::.', tooltipEditor);
   let r = {
     toggleStrong: markItem(schema.marks.strong, {
       title: tooltipEditor.strong,
