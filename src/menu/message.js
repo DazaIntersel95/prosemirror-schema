@@ -49,9 +49,10 @@ function markItem(markType, options) {
   return cmdItem(toggleMark(markType), passedOptions);
 }
 
-function linkItem(markType, linkText) {
+function linkItem(markType, tooltipEditor) {
+  const { link, createLink, placeholderLink, btnCancel, btnCreateLink } = tooltipEditor;
   return new MenuItem({
-    title: linkText,
+    title: link,
     icon: LinkIcon,
     active(state) {
       return markActive(state, markType);
@@ -65,10 +66,10 @@ function linkItem(markType, linkText) {
         return true;
       }
       openPrompt({
-        title: 'Create a link',
+        title: createLink,
         fields: {
           href: new TextField({
-            label: 'https://example.com',
+            label: placeholderLink,
             class: 'small',
             required: true,
           }),
@@ -77,6 +78,10 @@ function linkItem(markType, linkText) {
           toggleMark(markType, attrs)(view.state, view.dispatch);
           view.focus();
         },
+        buttons: {
+          textCancel: btnCancel,
+          textSubmit: btnCreateLink
+        }
       });
       return false;
     },
@@ -101,7 +106,7 @@ export function buildMessageEditorMenu(schema, tooltipEditor) {
       title: tooltipEditor.code,
       icon: CodeIcon,
     }),
-    toggleLink: linkItem(schema.marks.link, tooltipEditor.link),
+    toggleLink: linkItem(schema.marks.link, tooltipEditor),
     wrapBulletList: wrapListItem(schema.nodes.bullet_list, {
       title: tooltipEditor.bulletList,
       icon: BulletListIcon,

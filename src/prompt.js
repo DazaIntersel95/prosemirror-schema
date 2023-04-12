@@ -56,11 +56,11 @@ export function openPrompt(options) {
   submitButton.type = 'submit';
   submitButton.className =
     'button tiny button--save-link ' + prefix + '-submit';
-  submitButton.textContent = 'Create Link';
+  submitButton.textContent = options.buttons.textSubmit;
   let cancelButton = document.createElement('button');
   cancelButton.type = 'button';
   cancelButton.className = 'button tiny hollow secondary' + prefix + '-cancel';
-  cancelButton.textContent = 'Cancel';
+  cancelButton.textContent = options.buttons.textCancel;
   cancelButton.addEventListener('click', close);
 
   let form = wrapper.appendChild(document.createElement('form'));
